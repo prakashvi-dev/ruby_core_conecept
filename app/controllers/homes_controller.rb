@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
 	# require 'rubygems'
+
   def test
   end
 
