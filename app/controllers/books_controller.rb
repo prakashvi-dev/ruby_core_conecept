@@ -1,7 +1,5 @@
 class BooksController < ApplicationController
-  include SuckerPunch::Backgroundable
-  always_background :send_email
-  
+
   def new
     @books = Book.new
   end
