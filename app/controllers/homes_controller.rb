@@ -4,7 +4,6 @@ class HomesController < ApplicationController
   end
 
   def test_call
-    p "-----------#{params["TotalLiabilitiesAndEquity"]}"
     # respond_to do |format|
       @test = params["tab"]
     # end
