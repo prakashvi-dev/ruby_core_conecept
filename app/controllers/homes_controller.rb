@@ -1,6 +1,5 @@
 class HomesController < ApplicationController
 	# require 'rubygems'
- #  require 'json'
   def test
   end
 
