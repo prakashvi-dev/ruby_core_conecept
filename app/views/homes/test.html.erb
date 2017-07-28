@@ -1,0 +1,56 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+  <div id="horizontalTab">
+    <ul class="resp-tabs-list">
+      <li>tab-1</li>
+      <li>tab-2</li>
+      <li>tab-3</li>
+    </ul>
+    
+    <div class="resp-tabs-container">
+      <div id="tab-1">
+      </div>
+      <div id="tab-2">
+      </div>
+      <div id="tab-3">
+      </div>
+    </div>
+    <%= link_to "send Mail", new_book_path %>
+    <!-- reading document:
+  - Helper methods and member and collection for routes  (2 hour)
+  - Help kinjal for easy-responsive-tabs js issue (4 hour)
+  - working on display json data on view  page (2 hour)
+  -->
+  </div>
+<script>
+  $(document).ready(function () {
+    $('#horizontalTab').easyResponsiveTabs({
+    type: 'default', //Types: default, vertical, accordion           
+    width: 'auto', //auto or any width like 600px
+    fit: true,   // 100% fit in a container
+    closed: 'accordion', // Start closed if in accordion view
+    activate: function(event) { // Callback function if tab is switched
+    var $tab = $(this);
+    var $info = $('#tabInfo');
+    var $name = $('span', $info);
+    $name.text($tab.text());
+    $info.show();
+    }
+    });
+    // $('#verticalTab').easyResponsiveTabs({
+    // type: 'vertical',
+    // width: 'auto',
+    // fit: true
+    // });
+    $(".resp-tab-item, .resp-accordion").on('click', function(){
+      val = $(this).text();
+      $.ajax({
+        type:'GET', 
+        url: '/test_call', 
+        data: { tab: val } ,
+      });
+    })
+  });
+</script>
